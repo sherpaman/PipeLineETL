@@ -1,0 +1,19 @@
+FROM apache/airflow:2.2.2-python3.8
+ARG db_url
+ENV DB_URL=$db_url
+ENV PYTHONPATH "${PYTHONPATH}:/opt/airflow/whds"
+ADD whds /opt/airflow/whds
+WORKDIR /opt/airflow
+COPY ../airflow.cfg ./
+COPY ../airflow.cfg /usr/local/airflow/
+RUN mkdir my_workdir
+WORKDIR my_workdir
+COPY .. .
+USER root
+RUN pip install --upgrade pip
+RUN apt-get update
+#RUN apt-get -y install libgeos-dev proj-bin libproj-dev gcc g++
+#RUN pip install numpy~=1.21.2
+#RUN pip install -e .
+WORKDIR /opt/airflow
+USER airflow

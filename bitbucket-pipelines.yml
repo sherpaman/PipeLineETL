@@ -1,0 +1,11 @@
+image: python:3.8
+
+pipelines:
+  branches:
+    production:
+      - step:
+          name: Deploy
+          deployment: production
+          script:
+            - cat deploy_production.sh | ssh root@${SERVER_IP} bash -s
+  
