@@ -20,7 +20,7 @@ $ deactivate
 
 # Dataset cookbook
 
-The file `relevant_tables.json` is used for specifying datasets information regarding how to build an SQL query for it and what tables compose it. It is located in `~whds/relevant_tables.json`. 
+The file `relevant_tables.json` is used for specifying datasets information regarding how to build an SQL query for it and what tables compose it.
 
 The file is `json` valid and formatted as follows:
 
